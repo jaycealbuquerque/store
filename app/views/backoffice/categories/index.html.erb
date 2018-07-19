@@ -8,7 +8,11 @@
                         <h1 class="page-header">Categoria</h1>
                             <div class="panel panel-default">
                         <div class="panel-heading">
-                            Categorias
+                            Listando categorias
+                            <%= link_to new_backoffice_category_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
+                                <i class="fa fa-plus"></i>                
+                            <% end %>
+                            
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -27,10 +31,15 @@
                                             <td><%= category.id %></td>
                                             <td><%= category.description %></td>
                                             <td style="width: 150px">
-                                                <button type="button" class="btn btn-primary btn-circle">
-                                                <i class="fa fa-pencil"></i>
+                                                
+                                                <%= link_to edit_backoffice_category_path(category),
+                                                class: "btn btn-primary btn-circle" do %>
+                                                    <i class="fa fa-pencil"></i>
+                                                <% end %>
+                                                
+                                                
                                                 </button>
-                                                <button type="button" class="btn btn-danger btn-circle">
+                                                <button type="button" disabled="disabled" class="btn btn-danger btn-circle">
                                                 <i class="fa fa-trash-o"></i>
                                                 </button>
                                             </td>
@@ -52,3 +61,4 @@
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
+        
