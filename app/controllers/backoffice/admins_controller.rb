@@ -1,28 +1,29 @@
-class Backoffice::AdminsController < BackofficeController
+ class Backoffice::AdminsController < BackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
     #@admins = Admin.all
-     @admins = Admin.with_full_access
+     @admins = Admin.with_restricted_access
   end
 
   def new
-        @admin = Admin.new
-      end
+    @admin = Admin.new
+    authorize @admin
+  end
     
-      def create
-        @admin = Admin.new(params_admin)
-        if @admin.save
+  def create
+    @admin = Admin.new(params_admin)
+      if @admin.save
           redirect_to backoffice_admins_path, notice: "O Administrador (#{@admin.email}) foi cadastrado com sucesso!"
-        else
+      else
           render :new
-        end
       end
+  end
     
-      def edit
-      end
+  def edit
+  end
     
-      def update
+  def update
         passwd = params[:admin][:password]
         passwd_confirmation = params[:admin][:password_confirmation]
     
@@ -36,25 +37,26 @@ class Backoffice::AdminsController < BackofficeController
         else
           render :edit
         end
-      end
-      def destroy
-        admin_email = @admin.email
-        if @admin.destroy
-          redirect_to backoffice_admins_path, notice: "O Administrador (#{admin_email}) foi excluido com sucesso!"
-        else
-         render :index   
-        end 
-      end  
+  end
+  
+  def destroy
+    admin_email = @admin.email
+      if @admin.destroy
+        redirect_to backoffice_admins_path, notice: "O Administrador (#{admin_email}) foi excluido com sucesso!"
+      else
+        render :index   
+      end 
+  end  
     
-      private
+  private
     
-        def set_admin
-          @admin = Admin.find(params[:id])
-        end
+    def set_admin
+      @admin = Admin.find(params[:id])
+    end
     
-        def params_admin
-          params.require(:admin).permit(:name, :email, :password, :password_confirmation)
-        end
+    def params_admin
+      params.require(:admin).permit(:name, :email, :password, :password_confirmation)
+    end
 
 
 end

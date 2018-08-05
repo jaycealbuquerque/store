@@ -100,6 +100,8 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (1.6.10)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -203,6 +205,7 @@ DEPENDENCIES
   devise-i18n
   jbuilder (~> 2.0)
   jquery-rails
+  pundit
   rails (= 4.2.5.rc1)
   rails-assets-bootbox!
   rails-assets-bootstrap!
