@@ -58,7 +58,7 @@
     end
     
     def params_admin
-      params.require(:admin).permit(:name, :email,:role, :password, :password_confirmation)
+      params.require(:admin).permit(policy(@admin).permitted_attributes)
     end
 
 
