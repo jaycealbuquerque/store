@@ -41,7 +41,8 @@ class Backoffice::AdminsController < BackofficeController
     admin_name = @admin.name
 
     if @admin.destroy
-      redirect_to backoffice_admins_path, notice: I18n.t('messages.destroyed_with', item: admin_name)
+      redirect_to backoffice_admins_path, 
+                  notice: I18n.t('messages.destroyed_with', item: admin_name)
     else
       render :index
     end
@@ -53,14 +54,16 @@ class Backoffice::AdminsController < BackofficeController
       @admin = Admin.find(params[:id])
     end
 
-    def params_admin
-      passwd = params[:admin][:password]
-      passwd_confirmation = params[:admin][:password_confirmation]
+    def params_admin   
 
-      if passwd.blank? && passwd_confirmation.blank?
+      if password_blank
         params[:admin].except!(:password, :password_confirmation)
       end
 
       params.require(:admin).permit(policy(@admin).permitted_attributes)
+    end
+    def password_blank?
+      params[:admin][:password].blank? && 
+      params[:admin][:password_confirmation].blank?
     end
 end
