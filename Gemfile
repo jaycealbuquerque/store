@@ -15,7 +15,9 @@ gem 'bootstrap_sb_admin_base_v2'
 # Help ActiveRecord::Enum feature to work fine with I18n and simple_form.
 gem 'enum_help'
 # Minimal authorization through OO design and pure Ruby classes
+
 gem 'pundit'
+gem 'lerolero_generator'
 
 source 'https://rails-assets.org' do
   # Bootstrap
