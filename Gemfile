@@ -18,6 +18,8 @@ gem 'enum_help'
 
 gem 'pundit'
 gem 'lerolero_generator'
+# integration of rubymaney
+gem 'money-rails'
 
 source 'https://rails-assets.org' do
   # Bootstrap
