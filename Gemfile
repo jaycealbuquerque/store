@@ -20,6 +20,8 @@ gem 'pundit'
 gem 'lerolero_generator'
 # integration of rubymaney
 gem 'money-rails'
+# easy file attachment management for activerecord
+gem 'paperclip', '~> 5.0.0'
 
 source 'https://rails-assets.org' do
   # Bootstrap
