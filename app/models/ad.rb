@@ -4,7 +4,9 @@ class Ad < ActiveRecord::Base
 
   # validates
 
-  validates_presence_of :title, :description, :category, :price, :picture
+  validates :title, :description, :category,  presence: true 
+  validates :picture, :finish_date, presence: true
+  validates :price, numericality: { greater_than: 0}
 
 	scope :descending_order, ->(quantity = 10) {limit(quantity).order(created_at: :desc)}
 	scope :to_the, -> (member) {Ad.where(member: member)}
