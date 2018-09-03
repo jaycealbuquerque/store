@@ -51,6 +51,10 @@
                     
                     <%= link_to "Meus anúcios", site_profile_ads_path %>
                 </li>
+                <li>
+                    
+                    <%= link_to "Novo Anúcio", new_site_profile_ad_path %>
+                </li>
                
             </ul>
         </div>
@@ -69,6 +73,12 @@
         <!-- /#page-content-wrapper -->
 
     </div>
+
+     <% if notice %>
+        <script>
+            $.notify("<%= notice %>", "success");
+        </script>
+    <% end %>
 
     </body>
 
