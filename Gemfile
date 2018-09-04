@@ -18,6 +18,7 @@ gem 'enum_help'
 
 gem 'pundit'
 gem 'lerolero_generator'
+gem  'jquery-ui-rails'
 # integration of rubymaney
 gem 'money-rails'
 # easy file attachment management for activerecord
