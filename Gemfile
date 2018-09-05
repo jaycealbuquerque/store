@@ -27,8 +27,10 @@ gem 'paperclip', '~> 5.0.0'
 source 'https://rails-assets.org' do
   # Bootstrap
   gem 'rails-assets-bootstrap', '3.3.7'
-  # NotifyJS
-  gem 'rails-assets-notifyjs'
+  # Bootstrap Notify
+  gem 'rails-assets-bootstrap.growl'
+  # animate css
+  gem 'rails-assets-animate-css'
   # BootboxJS
   gem 'rails-assets-bootbox'
 end
