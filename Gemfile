@@ -23,6 +23,7 @@ gem  'jquery-ui-rails'
 gem 'money-rails'
 # easy file attachment management for activerecord
 gem 'paperclip', '~> 5.0.0'
+gem 'redcarpet'
 
 source 'https://rails-assets.org' do
   # Bootstrap
@@ -76,6 +77,7 @@ group :development do
   gem 'mailcatcher'
   # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
+  gem 'doctor_ipsum'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
