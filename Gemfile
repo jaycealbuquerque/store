@@ -25,6 +25,7 @@ gem 'money-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'redcarpet'
 gem 'friendly_id'
+gem 'wiselinks'
 
 source 'https://rails-assets.org' do
   # Bootstrap

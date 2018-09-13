@@ -9,7 +9,8 @@
                     <%=humanized_money_with_symbol ad.price%></h4>
                 <h4>
                     <%= link_to truncate(ad.title, length: 20), 
-                        site_ad_detail_path(ad), remote: true %>
+                        site_ad_detail_path(ad), remote: true, data: { push: 
+                            :partial} %>
                 </h4>
                     
                 <p><%= truncate(ad.description_short, length: 100) %></p> 
