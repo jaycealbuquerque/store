@@ -1,6 +1,7 @@
 class Ad < ActiveRecord::Base
   
-
+  #constante
+  QTT_PER_PAGE = 6
   # callbacks
   before_save :md_to_html
 
@@ -18,14 +19,14 @@ class Ad < ActiveRecord::Base
 
   # scopes
 	
-  scope :descending_order, ->(quantity = 10, page = 1) {
-    limit(quantity).order(created_at: :desc).page(page).per(6)
+  scope :descending_order, ->( page ) {
+    order(created_at: :desc).page(page).per(QTT_PER_PAGE)
   }
 
-  scope :search, ->(term, page = 1) {
-    where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(6)
+  scope :search, ->(term) {
+    where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(QTT_PER_PAGE)
   }
-  
+
 	scope :to_the, -> (member) {Ad.where(member: member)}
   scope :by_category, -> (id) { where(category: id)}
   
