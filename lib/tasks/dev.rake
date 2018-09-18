@@ -13,6 +13,7 @@ namespace :dev do
     puts %x(rake dev:generate_admins)
     puts %x(rake dev:generate_members)
     puts %x(rake dev:generate_ads)
+    puts %x(rake dev:generate_comments)
 
     puts "Setup completado com sucesso!"
   end
@@ -84,7 +85,8 @@ namespace :dev do
         category: Category.all.sample,
         price: "#{Random.rand(500)},#{Random.rand(99)}",
         finish_date: Date.today + Random.rand(100),
-        picture: File.new(Rails.root.join('public','templates','images-for-ads',"#{Random.rand(4)}.jpg"),'r')
+        picture: File.new(Rails.root.join('public','templates','images-for-ads',
+          "#{Random.rand(4)}.jpg"),'r')
 
       )
     end
@@ -95,6 +97,24 @@ namespace :dev do
   def markdown_fake
     %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry")
   end
+#################################################################################  
 
+ desc "Cria Comentarios Fake"
+  task generate_comments: :environment do
+    puts "Cadastrando COMENTÁRIO..."
+
+    Ad.all.each do |ad|
+      (Random.rand(3)).times do
+        Comment.create!(
+          body: Faker::Lorem.paragraph([1,2,3].sample),
+          member: Member.all.sample,
+          ad: ad
+        )
+
+      end
+    end
+
+    puts "COMENTÁRIO cadastrados com sucesso!"
+  end
 
 end
