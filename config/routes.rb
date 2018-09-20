@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     namespace :profile do
       resources :dashboard, only: [:index]
       resources :ads, only: [:index, :edit, :update, :new, :create]
+      resources :comments, only: [:create]
     end 
     resources :ad_detail, only: [:show] 
     resources :categories, only: [:show]
