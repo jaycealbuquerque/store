@@ -1,9 +1,13 @@
 class Ad < ActiveRecord::Base
-  
+
+
   #constante
   QTT_PER_PAGE = 6
   # callbacks
   before_save :md_to_html
+
+  # ratyrate gem
+  ratyrate_rateable 'quality'
 
 
 

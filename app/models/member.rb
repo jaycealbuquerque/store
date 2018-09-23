@@ -1,5 +1,11 @@
 class Member < ActiveRecord::Base
-	has_many :ads
+
+
+  # RatyRate gem  
+  ratyrate_rater
+  
+  # associates
+  has_many :ads
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
