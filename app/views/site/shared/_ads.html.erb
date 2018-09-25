@@ -4,7 +4,7 @@
         <div class="thumbnail">
            
             <%= image_tag ad.picture.url(:medium) %>
-            <div class="caption">
+            <div class="caption" style="height: 100px;" >
                 <h4 class="pull-right">
                     <%=humanized_money_with_symbol ad.price%></h4>
                 <h4>
@@ -15,7 +15,7 @@
                     
                 <p><%= truncate(ad.description_short, length: 100) %></p> 
             </div>
-            <div class="ratings">
+            <div class="ratings" style="padding: 5px;">
                <%= rating_for ad, 'quality' %>
             </div>
         </div>
