@@ -35,6 +35,7 @@ class Ad < ActiveRecord::Base
   scope :to_the, -> (member) {Ad.where(member: member)}
   scope :by_category, -> (id, page) { where(category: id).page(page).per(QTT_PER_PAGE)}
   
+  scope :random, ->(quantity) { limit(quantity).order("RANDOM()") }
 
 #paperclip
  has_attached_file :picture, styles: {large: "800x300#", medium: "320x150#", thumb: "100x100>" }, 
@@ -43,6 +44,13 @@ class Ad < ActiveRecord::Base
   
   # gem money_rails 
   monetize :price_cents
+
+  def second
+    self[1]
+  end
+   def third
+    self[2]
+  end
 
   private
     def md_to_html
