@@ -29,6 +29,8 @@ gem 'wiselinks'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'ratyrate'
+gem 'faker'
+gem 'doctor_ipsum'
 
 source 'https://rails-assets.org' do
   # Bootstrap
@@ -85,18 +87,9 @@ group :development do
   # Catches mail and serves it through a dream.
   gem 'mailcatcher'
   # A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
-  gem 'doctor_ipsum'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'capistrano','~> 3.7'
-  gem 'capistrano-bundler','~> 1.2'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-rvm'
 end
 
-group :production do
-  gem 'mysql2', '~> 0.3.18'
-end  
